@@ -1,0 +1,61 @@
+{
+  "name": "reacttest",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:5000"
+    }
+  },
+  "dependencies": {
+    "amazon-cognito-identity-js": "3.0.3",
+    "axios": "^0.18.0",
+    "bootstrap": "^4.0.0",
+    "cryptocompare": "^0.5.0",
+    "history": "^4.7.2",
+    "moment": "^2.22.2",
+    "node-sass-chokidar": "^1.1.0",
+    "npm-run-all": "^4.1.2",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-highcharts": "^16.0.2",
+    "react-https-redirect": "^1.0.9",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^5.0.0-alpha.9",
+    "react-scripts": "1.0.14",
+    "react-test-renderer": "^16.0.0",
+    "reactstrap": "^5.0.0-beta.2",
+    "recompose": "^0.27.1",
+    "redux": "^4.0.0",
+    "redux-observable": "^1.0.0-beta.1",
+    "redux-thunk": "^2.2.0",
+    "rxjs": "^6.2.0",
+    "semantic-ui-react": "^0.81.3",
+    "styled-components": "^3.3.3"
+  },
+  "scripts": {
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts start && start",
+    "start": "concurrently \"npm run watch-css\" \"npm run start-js\"",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "deploy": "aws s3 sync build/ s3://whatever-man-man-two"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-16": "^1.0.1",
+    "jest": "^21.2.1",
+    "puppeteer": "^1.4.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/index.js"
+    ]
+  }
+}
